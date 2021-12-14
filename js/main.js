@@ -59,11 +59,11 @@ console.log(randomChoseFinal)
 function game(){
     if (chose.value ===randomChoseFinal ){
         writeResult("Empate");
-    } else if ((chose.value = paper) && (randomChoseFinal === stone)) {
+    } else if ((chose.value === paper) && (randomChoseFinal === stone)) {
         writeResult("Has ganado!");
-    } else if ((chose.value = scissors) && (randomChoseFinal === paper)) {
+    } else if ((chose.value === scissors) && (randomChoseFinal === paper)) {
         writeResult("Has ganado!");
-    } else if ((chose.value = stone) && (randomChoseFinal === scissors)) {
+    } else if ((chose.value === stone) && (randomChoseFinal === scissors)) {
         writeResult("Has ganado!");
     } else {
         writeResult("Has perdido!");
