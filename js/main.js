@@ -3,11 +3,15 @@
 // Declaramos las variables
 const btn = document.querySelector(".js_button"); 
 let stone =document.querySelector(".js-stone").value; 
-let scissors =document.querySelector (".js-paper").value; 
-let paper = document.querySelector (".js-scissors").value; 
-let scoreGamePhrase = document.querySelector ("#result"); 
-let scorePlayer = document.querySelector (".js-player"); 
-let scoreComputer = document.querySelector (".js-computer");
+let scissors =document.querySelector(".js-paper").value; 
+let paper = document.querySelector(".js-scissors").value; 
+let scoreGamePhrase = document.querySelector("#result"); 
+let scorePlayer = document.querySelector(".js-player"); 
+let scoreComputer = document.querySelector(".js-computer");
+const result = document.querySelector(".js_result");
+const numberResult = getRandomNumber (10); 
+const randomChoseFinal = randomChose(numberResult);
+
 
 //Get random number from 1 to 10
 
@@ -36,9 +40,10 @@ function randomChose(numberResult){
  return numberResult;
 }
 
-function writeKey  (message) {
-    key.innerHTML = message;
+function writeResult  (message) {
+    result.innerHTML = message;
   }
+
 // Function game; 
 // 1. Si el numero random coincide con la eleccion del jugador ===> empate
 // 2. Si el numero random saca papel y el jugador piedra ===> has ganado
@@ -46,18 +51,22 @@ function writeKey  (message) {
 // 4. Si el numero random saca piedra y el jugador tijera ===> has ganado
 // 5. Cualquier otra cosa ====> has perdido
 
+console.log(chose.value);
+console.log(randomChoseFinal)
+
+
 
 function game(){
-    if (scoreGamePhrase.value === numberResult){
-        writeResult ("Empate");
-    } else if ((scoreGamePhrase.value = paper) && (numberResult = stone)) {
-        writeResult ("Has ganado!");
-    } else if ((scoreGamePhrase.value = scissors) && (numberResult = paper)) {
-        writeResult ("Has ganado!");
-    } else if ((scoreGamePhrase.value = stone) && (numberResult = scissors)) {
-        writeResult ("Has ganado!");
+    if (chose.value ===randomChoseFinal ){
+        writeResult("Empate");
+    } else if ((chose.value = paper) && (randomChoseFinal = stone)) {
+        writeResult("Has ganado!");
+    } else if ((chose.value = scissors) && (randomChoseFinal = paper)) {
+        writeResult("Has ganado!");
+    } else if ((chose.value = stone) && (randomChoseFinal = scissors)) {
+        writeResult("Has ganado!");
     } else {
-        writeResult ("Has perdido!");
+        writeResult("Has perdido!");
     }
     
 }
@@ -67,9 +76,12 @@ function game(){
 // Function score; según el resultado vamos a un marcador u otro 
 
 // function score(){
-//     if (writeResult ("Has ganado!");
+//     if (writeResult = ("Has ganado!") {
+//         value ++;score.texContent
 
-// }
+
+
+// // }
 
 
 
@@ -77,10 +89,9 @@ function game(){
 //Todos los eventos que tiene que ejecutar btn cuando hacemos "click"
 function handleBtnClick (ev){
     ev.preventDefault();
-    const numberResult = getRandomNumber (10); 
-    const randomChoseFinal = randomChose(numberResult);
+    
     console.log(randomChoseFinal);
-    // game();
+    game();
     // score();
 
 
