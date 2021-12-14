@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piedra, papel o tijera</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@100;700&family=Open+Sans:ital,wght@0,300;0,600;1,600&family=VT323&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="body">
+  <header>
+    <h1 class="header">Piedra, papel o tijera</h1>
+  </header>
+    <main>
+      <form action="" class="js-form form">
+        <h3>Introduce aqui tu jugada:</h3>
+        <label for="chose"></label>
+            <select id="chose" name="chose">
+                <option value="piedra">papel</option>
+                <option value="papel">piedra</option>
+                <option value="tijera">tijera</option>
+            </select>
+        </div>
+        <!-- <button class="update js-btnUpdate" >Update</button>
+        <input type="number" name="number" id="number" class="js_number type" /> -->
+        <button class="js_button color">Jugar</button>
+       
+      </form>
+      <div class = "score js-score">
+        <h2 class="js-result">Vamos a jugar!</h2>
+        <h3>Jugador;</h3>
+        <div class ="js-player" id="player">0</div>
+        <h3>Computadora;</h3>
+        <div class ="js-computer" id="computer">0</div>
+      </div>
+    </main>
+    <footer>
+      <div id="ground"></div>
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
