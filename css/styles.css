@@ -20,6 +20,15 @@
   font-family: "super mario font";
 }
 
+.chose {
+  background-color: green;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid rgb(51, 66, 51);
+  color: azure;
+  font-family: "super mario font";
+  margin: 40px;
+}
 /* .main {
     display: flex;
     flex-direction: column;
@@ -37,7 +46,6 @@
   justify-content: center;
   align-items: center;
   font-family: "super mario font";
-  margin: 100px;
   font-size: 15px;
 }
 
@@ -50,20 +58,27 @@
 }
 
 .color {
-  color: rgb(236, 150, 19);
-  background-color: rgb(44, 42, 39);
-  border-radius: 10px;
+  color: white;
+  background-color: red;
+  border-radius: 50px;
   margin-top: 10px;
   width: 100px;
-  height: 25px;
+  height: 100px;
   font-family: "super mario font";
 }
 
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "super mario font";
+}
 .counter {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-end;
   font-family: "super mario font";
 }
 
