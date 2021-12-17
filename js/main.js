@@ -16,9 +16,9 @@ return Math.ceil(Math.random() * max);
 }
 
 // Asignamos valor de piedra papel tijera al número random
-pcChose = getRandomNumber(10);
+
 function generatePcChose() {
-    // pcChose = getRandomNumber(10);
+    pcChose = getRandomNumber(10);
     if (pcChose >= 0 && pcChose < 3) {
         pcChose = "piedra";
     } else if (pcChose >= 3 && pcChose < 6) {
@@ -29,9 +29,9 @@ function generatePcChose() {
     console.log(pcChose);
   }
 
-
-
-
+let playerPoints = 0;
+let pcPoints = 0;
+  
 
   // Function game; 
 function writeResult  (message) {
@@ -44,20 +44,20 @@ function game(){
         writeResult("Empate");
     } else if ((chose.value === "papel") && (pcChose === "piedra")) {
         writeResult("Has ganado!");
-        scorePlayer ++;
+       playerPoints ++;
     } else if ((chose.value === "tijera") && (pcChose === "papel")) {
         writeResult("Has ganado!");
-        scorePlayer ++;
+        playerPoints ++;
 
     } else if ((chose.value === "piedra") && (pcChose === "tijera")) {
         writeResult("Has ganado!");
-        scorePlayer ++;
+        playerPoints ++;
     } else {
         writeResult("Has perdido!");
-        scoreComputer ++;
+        pcPoints ++;
     }
-    scoreComputer.innerHTML = "Ordenador: " + scoreComputer;
-    scorePlayer.innerHTML = "Jugador:  " + scorePlayer;
+    scoreComputer.innerHTML = "Ordenador: " + pcPoints;
+    scorePlayer.innerHTML = "Jugador:  " + playerPoints;
 }
 
 // ********************************************************************
