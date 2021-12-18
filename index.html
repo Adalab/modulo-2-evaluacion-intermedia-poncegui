@@ -15,36 +15,61 @@
 
 <body class="body">
   <header>
+    <img class ="js-imgHidden" src="./images/trofeo.png">
+    <img class ="js-marioHidden" src="./images/mario-llorando.gif">
     <h1 class="header">Piedra, papel o tijera</h1>
   </header>
-    <main>
-      <form action="" class="js-form form">
-        <h3>Introduce aqui tu jugada:</h3>
-        <label for="chose"></label>
-            <select class="chose" id="chose" name="chose">
-                <option class ="js-stone" value="piedra">piedra</option>
-                <option class ="js-paper" value="papel">papel</option>
-                <option class ="js-scissors" value="tijera">tijera</option>
-            </select>
+  <main>
+    <form action="" class="js-form form">
+      <h3>Introduce aqui tu jugada:</h3>
+      <label for="chose"></label>
+      <select class="chose" id="chose" name="chose">
+        <option class="js-stone" disabled selected >Seleccione su jugada</option>
+        <option class="js-stone" value="piedra">piedra</option>
+        <option class="js-paper" value="papel">papel</option>
+        <option class="js-scissors" value="tijera">tijera</option>
+      </select>
+      </div>
+      <button class="js_button color">Start</button>
+      <button class="js_button_reset hiddenResetBtn">Reset</button>
+    </form>
+    <div class="score js-score">
+      <h2 id="color" class="js_result">!Vamos a jugar!</h2>
+      <div class="result"></div>
+      <h3 class="js-player"> Jugador; </h3>
+      <div class="iconsPlayer">
+        <div class="iconHiddenRp">
+          <i class="fas fa-hand-rock" id="rock"></i>
         </div>
-        <button class="js_button color">Jugar</button>
-      </form>
-      <div class = "score js-score">
-        <h2 class="js_result">Vamos a jugar!</h2>
-        <h3 class ="js-player"> Jugador; </h3>
-        <h3 class ="js-computer">Computadora;</h3>
 
-      <div class="icons">
-        <i class="fas fa-hand-rock js-iconRock" id="rock"></i>
-        <i class="fas fa-hand-paper js-iconPaper"></i>
-        <i class="fas fa-hand-scissors js-iconScissors"></i>
+        <div class="iconHiddenPp">
+          <i class="fas fa-hand-paper" id="paper"></i>
+        </div>
+
+        <div class="iconHiddenSp">
+          <i class="fas fa-hand-scissors" id="scissors"></i>
+        </div>
+        <h3 class="js-computer">Computadora;</h3>
       </div>
-      </div>
-    </main>
-    <footer>
-      <div id="ground"></div>
-    </footer>
-    <script src="./js/main.js"></script>
+      <div class="iconsComputer">
+        <div class="iconHiddenRc">
+          <i class="fas fa-hand-rock" id="rock"></i>
+        </div>
+
+        <div class="iconHiddenPc">
+          <i class="fas fa-hand-paper" id="paper"></i>
+        </div>
+
+        <div class="iconHiddenSc">
+          <i class="fas fa-hand-scissors" id="scissors"></i>
+        </div>
+
+
+  </main>
+  <footer>
+    <div id="ground"></div>
+  </footer>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>

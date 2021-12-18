@@ -3,7 +3,10 @@
   src: url(../assets/emulogic.ttf);
 }
 
-.body {
+/*******  BACKGROUND STYLES  ***********************
+******************************************/
+
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +16,15 @@
   height: 100vh;
 }
 
+h3 {
+  color: white;
+}
+.changeBkgDark {
+  background: black;
+}
+.changeBkgWinner {
+  background: rgb(46, 150, 115);
+}
 .header {
   color: rgb(17, 16, 15);
   font-size: 25px;
@@ -29,16 +41,89 @@
   font-family: "super mario font";
   margin: 40px;
 }
-/* .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 500px;
-    font-family: "VT323", monospace;
-    background-color: cornsilk;
-  } */
+.mario {
+  height: 200px;
+  width: 300px;
+  position: relative;
+  left: 100px;
+}
+
+.js-marioHidden {
+  display: none;
+}
+
+.img {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  left: 200px;
+  margin-bottom: 50px;
+}
+.js-imgHidden {
+  display: none;
+}
+/*******  BUTTONS  ***********************
+******************************************/
+
+.color {
+  color: white;
+  background-color: blue;
+  border-radius: 50px;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  font-family: "super mario font";
+}
+
+.js_button_reset {
+  color: white;
+  background-color: red;
+  border-radius: 50px;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  font-family: "super mario font";
+}
+
+.hiddenResetBtn {
+  display: none;
+}
+
+.resetBtn {
+  display: block;
+}
+
+/*******  ICONS  ***********************
+******************************************/
+.fas {
+  color: rgb(245, 161, 52);
+  font-size: 40px;
+}
+.iconHiddenRp {
+  display: none;
+}
+
+.iconHiddenPp {
+  display: none;
+}
+
+.iconHiddenSp {
+  display: none;
+}
+
+.iconHiddenRc {
+  display: none;
+}
+
+.iconHiddenPc {
+  display: none;
+}
+
+.iconHiddenSc {
+  display: none;
+}
+/* ********************************
+*********************************** */
 
 .form {
   display: flex;
@@ -47,6 +132,7 @@
   align-items: center;
   font-family: "super mario font";
   font-size: 15px;
+  color: white;
 }
 
 .type {
@@ -57,23 +143,17 @@
   font-family: "super mario font";
 }
 
-.color {
-  color: white;
-  background-color: red;
-  border-radius: 50px;
-  margin-top: 10px;
-  width: 100px;
-  height: 100px;
+/* ***** SCORE PLAYER vs. COMPUTER ******* */
+.score {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-content: center; */
   font-family: "super mario font";
+  margin: auto;
 }
 
-.score {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "super mario font";
-}
 .counter {
   display: flex;
   flex-direction: row;
@@ -85,4 +165,11 @@
 .counter div {
   font-size: 25px;
   font-family: "super mario font";
+}
+
+.js_result {
+  color: white;
+  display: grid;
+  grid-column: 1/3;
+  margin: 50px;
 }
