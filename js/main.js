@@ -234,6 +234,7 @@ function handleBtnClick (ev){
     counterResets();
     iconsPlayer();
     iconsComputer();
+    
 
  
 }
