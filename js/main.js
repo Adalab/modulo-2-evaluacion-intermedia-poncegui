@@ -42,9 +42,9 @@ function generatePcChose() {
     pcChose = getRandomNumber(10);
     if (pcChose >= 0 && pcChose <= 3) {
         pcChose = "piedra";
-    } else if (pcChose > 3 && pcChose < 6) {
+    } else if (pcChose > 3 && pcChose <= 6) {
         pcChose = "papel";
-    } else if (pcChose >= 6 && pcChose <= 10) {
+    } else if (pcChose > 6 && pcChose <= 10) {
       pcChose = "tijera";
     }
 }
@@ -76,11 +76,6 @@ function game(){
         attemps ++;
 
     } else if ((chose.value === "piedra") && (pcChose === "tijera")) {
-        writeResult("!Has ganado!");
-        playerPoints ++;
-        attemps ++;
-
-    } else if ((chose.value === "papel") && (pcChose === "tijera")) {
         writeResult("!Has ganado!");
         playerPoints ++;
         attemps ++;
