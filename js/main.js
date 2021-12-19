@@ -39,7 +39,7 @@ return Math.ceil(Math.random() * max);
 
 
 function generatePcChose() {
-    pcChose = getRandomNumber(10);
+    pcChose = getRandomNumber(5);
     if (pcChose >= 0 && pcChose <= 3) {
         pcChose = "piedra";
     } else if (pcChose > 3 && pcChose <= 6) {
@@ -141,7 +141,7 @@ function iconsPlayer(){
 
 
 function hideIconsReset(){
-    if (attemps === 10){
+    if (attemps === 5){
         paperIconC.classList.add("iconHiddenPc");
         rockIconC.classList.add("iconHiddenRc");
         scissorsIconC.classList.add("iconHiddenSc");
@@ -159,7 +159,7 @@ function hideIconsReset(){
 
 function counterResets() {
     
-    if ((attemps === 10) && (pcPoints < playerPoints)) {
+    if ((attemps === 5) && (pcPoints < playerPoints)) {
         pcPoints = 0; playerPoints = 0;
         writeResult("Partida finalizada, ¡Has ganado!");
         btn.classList.add("hiddenResetBtn");
@@ -169,7 +169,7 @@ function counterResets() {
         trophy.classList.add("img");
       
 
-      }  else if ((attemps === 10) && (pcPoints > playerPoints)){
+      }  else if ((attemps === 5) && (pcPoints > playerPoints)){
         pcPoints = 0; playerPoints = 0;
         writeResult("Partida finalizada, ¡Has perdido!");
         changeBkg.classList.add("changeBkgDark");
@@ -179,7 +179,7 @@ function counterResets() {
         mario.classList.add("mario");
 
 
-    }  else if ((attemps === 10) && (pcPoints === playerPoints)){
+    }  else if ((attemps === 5) && (pcPoints === playerPoints)){
         pcPoints = 0; playerPoints = 0;
         writeResult("Partida finalizada, ¡Empate!");
         btn.classList.add("hiddenResetBtn");
