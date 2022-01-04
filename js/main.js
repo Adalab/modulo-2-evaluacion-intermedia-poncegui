@@ -1,10 +1,9 @@
 'use strict';
 
-// ************************************************************************************
 // HTML elements
-// ************************************************************************************
 
-let btn = document.querySelector(".js_button"); 
+
+const btn = document.querySelector(".js_button"); 
 let scorePlayer = document.querySelector(".js-player"); 
 let scoreComputer = document.querySelector(".js-computer");
 let result = document.querySelector(".js_result");
@@ -17,9 +16,8 @@ const rockIconC = document.querySelector(".iconHiddenRc");
 const paperIconC = document.querySelector(".iconHiddenPc");
 const scissorsIconC = document.querySelector(".iconHiddenSc");
 
-// ************************************************************************************
 // global elements
-// ************************************************************************************
+
 
 let pcChose ="";
 let playerPoints = 0;
@@ -27,11 +25,7 @@ let pcPoints = 0;
 let attemps = 0;
 
 
-
-// ************************************************************************************
 //Get random number from 1 to 10 & Asign value "piedra papel tijera" to random number
-// ************************************************************************************
-
 
 function getRandomNumber(max) {
 return Math.ceil(Math.random() * max); 
@@ -39,21 +33,19 @@ return Math.ceil(Math.random() * max);
 
 
 function generatePcChose() {
-    pcChose = getRandomNumber(5);
+    pcChose = getRandomNumber(10);
     if (pcChose >= 0 && pcChose <= 3) {
         pcChose = "piedra";
     } else if (pcChose > 3 && pcChose <= 6) {
-        pcChose = "papel";
+        pcChose = "papel";   
     } else if (pcChose > 6 && pcChose <= 10) {
       pcChose = "tijera";
     }
 }
 
 
-// ************************************************************************************
-// Function game
-// ************************************************************************************
 
+// Function Play rules
 // this function is for exchange main message as per game results
 
 function writeResult  (message) {
@@ -61,29 +53,37 @@ function writeResult  (message) {
 }
 
 console.log(chose.value);
-function game(){
+function playRules(){
+    attemps ++;
+
     if (chose.value === pcChose){
         writeResult("Empate");
-        attemps ++;
+  
     } else if ((chose.value === "papel") && (pcChose === "piedra")) {
         writeResult("!Has ganado!");
         playerPoints ++;
-        attemps ++;
+   
 
     } else if ((chose.value === "tijera") && (pcChose === "papel")) {
         writeResult("!Has ganado!");
         playerPoints ++;
-        attemps ++;
+
 
     } else if ((chose.value === "piedra") && (pcChose === "tijera")) {
         writeResult("!Has ganado!");
         playerPoints ++;
-        attemps ++;
+
+    } else if (chose.value === "Seleccione su jugada"){
+        writeResult("Entrada no valida, intentelo de nuevo");
+        pcPoints = 0; playerPoints = 0; attemps = 0;
+        pcChose = -1;
+        resetGame()
+
 
     } else {
         writeResult("!Has perdido!");
         pcPoints ++;
-        attemps ++;     
+   
     }
 
     scoreComputer.innerHTML = "Ordenador: " + pcPoints;
@@ -91,11 +91,7 @@ function game(){
 }
 
 
-
-// ************************************************************************************
 // Shows icons as per game result (not requered on exercise)
-// ************************************************************************************
-
 
 function iconsPlayer(){
     if (chose.value === "tijera"){
@@ -103,13 +99,10 @@ function iconsPlayer(){
         paperIconP.classList.add("iconHiddenPp");
         rockIconP.classList.add("iconHiddenRp");
 
-
     }else if (chose.value === "piedra"){
         rockIconP.classList.remove("iconHiddenRp");
         paperIconP.classList.add("iconHiddenPp");
         scissorsIconP.classList.add("iconHiddenSp");
-
-
 
     } else if (chose.value === "papel"){
         paperIconP.classList.remove("iconHiddenPp");
@@ -124,13 +117,10 @@ function iconsPlayer(){
         paperIconC.classList.add("iconHiddenPc");
         rockIconC.classList.add("iconHiddenRc");
 
-
     }else if (pcChose === "piedra"){
         rockIconC.classList.remove("iconHiddenRc");
         paperIconC.classList.add("iconHiddenPc");
         scissorsIconC.classList.add("iconHiddenSc");
-
-
 
     } else if (pcChose === "papel"){
         paperIconC.classList.remove("iconHiddenPc");
@@ -141,7 +131,7 @@ function iconsPlayer(){
 
 
 function hideIconsReset(){
-    if (attemps === 5){
+    if ((attemps === 5) || (chose.value === "Seleccione su jugada")){
         paperIconC.classList.add("iconHiddenPc");
         rockIconC.classList.add("iconHiddenRc");
         scissorsIconC.classList.add("iconHiddenSc");
@@ -153,14 +143,15 @@ function hideIconsReset(){
     
 }    
 
-// ************************************************************************************
+
 // Counter resets when it reaches 10 attemps and select the winner // also handle btns
-// ************************************************************************************
+
 
 function counterResets() {
+    document.getElementById('chose').options.selectedIndex = 0;
     
     if ((attemps === 5) && (pcPoints < playerPoints)) {
-        pcPoints = 0; playerPoints = 0;
+        pcPoints = 0; playerPoints = 0; attemps = 0;
         writeResult("Partida finalizada, ¡Has ganado!");
         btn.classList.add("hiddenResetBtn");
         resetBtn.classList.add("resetBtn");
@@ -170,7 +161,7 @@ function counterResets() {
       
 
       }  else if ((attemps === 5) && (pcPoints > playerPoints)){
-        pcPoints = 0; playerPoints = 0;
+        pcPoints = 0; playerPoints = 0; attemps = 0;
         writeResult("Partida finalizada, ¡Has perdido!");
         changeBkg.classList.add("changeBkgDark");
         btn.classList.add("hiddenResetBtn");
@@ -180,19 +171,23 @@ function counterResets() {
 
 
     }  else if ((attemps === 5) && (pcPoints === playerPoints)){
-        pcPoints = 0; playerPoints = 0;
+        pcPoints = 0; playerPoints = 0; attemps = 0;
         writeResult("Partida finalizada, ¡Empate!");
         btn.classList.add("hiddenResetBtn");
         resetBtn.classList.add("resetBtn");
-     
+        
+    }    else if ((attemps === 5) && (pcPoints === playerPoints)){
+        pcPoints = 0; playerPoints = 0; attemps = 0;
+        writeResult("Partida finalizada, ¡Empate!");
+        btn.classList.add("hiddenResetBtn");
+        resetBtn.classList.add("resetBtn");
          
     } 
 }
 
 
-// ************************************************************************************
 //  Funtion to add and remove btns also change background color as per result
-// ************************************************************************************
+
 
 function resetGame() {
     btn.classList.remove("hiddenResetBtn");
@@ -210,22 +205,21 @@ function resetGame() {
     
 
 }
-// ************************************************************************************
+
 // gif not included on exercise
-// ************************************************************************************
+
    const mario = document.querySelector(".js-marioHidden");
    const trophy = document.querySelector(".js-imgHidden");
 
    
 
-// ************************************************************************************
 // Events
-// ************************************************************************************
+
 
 function handleBtnClick (ev){
     ev.preventDefault();
     generatePcChose();
-    game();
+    playRules();
     counterResets();
     iconsPlayer();
     iconsComputer();
@@ -242,9 +236,7 @@ function handleResetBtnClick(ev) {
 
 }
 
-// ************************************************************************************
-// Listeners
-// ************************************************************************************
 
+// Listeners
 btn.addEventListener("click", handleBtnClick);
 resetBtn.addEventListener("click", handleResetBtnClick);

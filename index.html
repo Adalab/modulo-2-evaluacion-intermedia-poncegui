@@ -17,14 +17,15 @@
   <header>
     <img class ="js-imgHidden" src="./images/trofeo.png">
     <img class ="js-marioHidden" src="./images/mario-llorando.gif">
-    <h1 class="header">Piedra, papel o tijera</h1>
+    
   </header>
   <main>
+    <h1 class="header">Piedra, papel o tijera</h1>
     <form action="" class="js-form form">
       <h3>Introduce aqui tu jugada:</h3>
       <label for="chose"></label>
-      <select class="chose" id="chose" name="chose">
-        <option class="js-stone" disabled selected >Seleccione su jugada</option>
+      <select class="chose" id="chose" name="chose" default>
+        <!-- <option class="js-stone" required disabled= "disabled" selected="selected" >Seleccione su jugada</option> -->
         <option class="js-stone" value="piedra">piedra</option>
         <option class="js-paper" value="papel">papel</option>
         <option class="js-scissors" value="tijera">tijera</option>
